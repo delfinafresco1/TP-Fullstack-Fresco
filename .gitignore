@@ -1,0 +1,6 @@
+node_modules/
+.env
+.env.local
+.server.out.log
+.server.err.log
+.prueba-permisos.txt

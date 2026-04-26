@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresco PC Custom API</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --text: #162033;
+        --muted: #60708a;
+        --accent: #0f766e;
+        --border: #d9e2ec;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      h1, h2 {
+        margin: 0 0 12px;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+
+      code {
+        background: #eaf2f1;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h1>Fresco PC Custom API</h1>
+        <p>API REST para la primera entrega del TP Fullstack. La documentacion detallada tambien se encuentra en <code>/docs/endpoints.md</code>.</p>
+        <p>
+          Base URL: <code>http://localhost:5000/api</code><br />
+          OpenAPI JSON: <code>/api-docs/openapi.json</code>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Recursos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Modulo</th>
+              <th>Endpoints</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Productos</td>
+              <td><code>GET/POST /api/productos</code><br /><code>GET/PUT/DELETE /api/productos/:id</code></td>
+              <td>Catalogo de componentes para armado de PCs.</td>
+            </tr>
+            <tr>
+              <td>Usuarios</td>
+              <td><code>GET/POST /api/usuarios</code><br /><code>GET/PUT /api/usuarios/:id</code></td>
+              <td>Clientes con presupuesto y perfil de uso.</td>
+            </tr>
+            <tr>
+              <td>Armados</td>
+              <td><code>GET/POST /api/armados</code><br /><code>GET/PUT /api/armados/:id</code></td>
+              <td>Configuraciones custom con validacion basica de compatibilidad.</td>
+            </tr>
+            <tr>
+              <td>Carritos</td>
+              <td><code>GET/POST /api/carritos</code><br /><code>GET /api/carritos/:id</code><br /><code>POST /api/carritos/:id/items</code></td>
+              <td>Gestor de compra temporal por usuario.</td>
+            </tr>
+            <tr>
+              <td>Pedidos</td>
+              <td><code>GET/POST /api/pedidos</code><br /><code>GET /api/pedidos/:id</code></td>
+              <td>Checkout final a partir de un carrito.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
