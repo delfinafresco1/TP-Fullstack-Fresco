@@ -36,9 +36,19 @@ async function addItem(req, res, next) {
   }
 }
 
+async function remove(req, res, next) {
+  try {
+    const carrito = await carritoService.remove(req.params.id);
+    res.status(200).json({ carrito, message: 'Carrito eliminado' });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   list,
   getById,
   create,
   addItem,
+  remove,
 };

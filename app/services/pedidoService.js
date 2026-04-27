@@ -4,7 +4,7 @@ const usuarioService = require('./usuarioService');
 const productoService = require('./productoService');
 
 function createId() {
-  return `ord-${Date.now()}`;
+  return `pedido-${Date.now()}`;
 }
 
 function buildValidationError(message) {

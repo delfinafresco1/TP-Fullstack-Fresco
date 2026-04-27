@@ -7,5 +7,6 @@ router.get('/', carritoController.list);
 router.get('/:id', carritoController.getById);
 router.post('/', carritoController.create);
 router.post('/:id/items', carritoController.addItem);
+router.delete('/:id', carritoController.remove);
 
 module.exports = router;

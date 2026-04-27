@@ -3,7 +3,7 @@ const productoModel = require('../models/productoModel');
 const VALID_CATEGORIES = ['cpu', 'motherboard', 'gpu', 'ram', 'storage', 'psu', 'case', 'cooler'];
 
 function createId() {
-  return `prod-${Date.now()}`;
+  return `producto-${Date.now()}`;
 }
 
 function buildValidationError(message) {

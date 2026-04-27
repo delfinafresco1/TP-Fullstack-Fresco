@@ -4,31 +4,36 @@ Los siguientes datos se insertan automaticamente en MongoDB al iniciar la app si
 
 ## Productos semilla
 
-- `prod-1`: AMD Ryzen 7 7800X3D (`cpu`)
-- `prod-2`: ASUS TUF B650-PLUS WIFI (`motherboard`)
-- `prod-3`: NVIDIA RTX 4070 Super (`gpu`)
-- `prod-4`: Kingston Fury Beast 32GB (`ram`)
-- `prod-5`: Samsung 980 Pro 1TB (`storage`)
-- `prod-6`: Corsair RM750e 750W (`psu`)
-- `prod-7`: NZXT H6 Flow (`case`)
-- `prod-8`: DeepCool AK620 (`cooler`)
+- `producto-1`: Procesador Gamer AMD (`cpu`)
+- `producto-2`: Placa Madre AM5 ASUS (`motherboard`)
+- `producto-3`: Placa de Video RTX 4070 (`gpu`)
+- `producto-4`: Memoria RAM 32GB DDR5 (`ram`)
+- `producto-5`: Disco SSD 1TB (`storage`)
+- `producto-6`: Fuente 750W (`psu`)
+- `producto-7`: Gabinete Mid Tower (`case`)
+- `producto-8`: Cooler para CPU (`cooler`)
 
 ## Usuarios semilla
 
-- `usr-1`: Lucia Fernandez, perfil `gaming`
-- `usr-2`: Martin Gomez, perfil `streaming`
+- `usuario-1`: Lucia Fernandez, perfil `gaming`
+- `usuario-2`: Martin Gomez, perfil `streaming`
+
+## Credenciales de demo
+
+- `lucia@fresco.dev` / `Fullstack123`
+- `martin@fresco.dev` / `Fullstack123`
 
 ## Armado semilla
 
-- `build-1`: configuracion AM5 completa asociada a `usr-1`
+- `armado-1`: configuracion completa asociada a `usuario-1`
 
 ## Carrito semilla
 
-- `cart-1`: carrito asociado a `usr-1` con GPU y SSD
+- `carrito-1`: carrito asociado a `usuario-1` con GPU y SSD
 
 ## Pedido semilla
 
-- `ord-1`: pedido confirmado asociado a `usr-2`
+- `pedido-1`: pedido confirmado asociado a `usuario-2`
 
 ## Flujo sugerido para demo
 

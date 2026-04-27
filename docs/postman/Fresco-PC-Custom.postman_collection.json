@@ -13,6 +13,41 @@
   ],
   "item": [
     {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"lucia@fresco.dev\",\n  \"password\": \"Fullstack123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://{{baseUrl}}/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Productos - Listar",
       "request": {
         "method": "GET",
@@ -63,7 +98,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"nombre\": \"Sofia Torres\",\n  \"email\": \"sofia@fresco.dev\",\n  \"presupuestoMaximo\": 2100000,\n  \"perfil\": \"edicion\"\n}",
+          "raw": "{\n  \"nombre\": \"Sofia Torres\",\n  \"email\": \"sofia@fresco.dev\",\n  \"password\": \"Fullstack123\",\n  \"presupuestoMaximo\": 2100000,\n  \"perfil\": \"edicion\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -85,12 +120,32 @@
       "response": []
     },
     {
-      "name": "Armados - Obtener build-1",
+      "name": "Usuarios - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://{{baseUrl}}/api/usuarios/usuario-2",
+          "protocol": "http",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "usuario-2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Armados - Obtener armado-1",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{baseUrl}}/api/armados/build-1",
+          "raw": "http://{{baseUrl}}/api/armados/armado-1",
           "protocol": "http",
           "host": [
             "{{baseUrl}}"
@@ -98,7 +153,7 @@
           "path": [
             "api",
             "armados",
-            "build-1"
+            "armado-1"
           ]
         }
       },
@@ -117,7 +172,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"nombre\": \"PC Streaming AM5\",\n  \"usuarioId\": \"usr-1\",\n  \"componentes\": [\"prod-1\", \"prod-2\", \"prod-3\", \"prod-4\", \"prod-5\", \"prod-6\", \"prod-7\", \"prod-8\"]\n}",
+          "raw": "{\n  \"nombre\": \"PC Streaming AM5\",\n  \"usuarioId\": \"usuario-1\",\n  \"componentes\": [\"producto-1\", \"producto-2\", \"producto-3\", \"producto-4\", \"producto-5\", \"producto-6\", \"producto-7\", \"producto-8\"]\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -139,12 +194,32 @@
       "response": []
     },
     {
-      "name": "Carritos - Obtener cart-1",
+      "name": "Armados - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://{{baseUrl}}/api/armados/armado-1",
+          "protocol": "http",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "armados",
+            "armado-1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Carritos - Obtener carrito-1",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{baseUrl}}/api/carritos/cart-1",
+          "raw": "http://{{baseUrl}}/api/carritos/carrito-1",
           "protocol": "http",
           "host": [
             "{{baseUrl}}"
@@ -152,7 +227,27 @@
           "path": [
             "api",
             "carritos",
-            "cart-1"
+            "carrito-1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Carritos - Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://{{baseUrl}}/api/carritos/carrito-1",
+          "protocol": "http",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "carritos",
+            "carrito-1"
           ]
         }
       },
@@ -171,7 +266,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"productoId\": \"prod-5\",\n  \"cantidad\": 1\n}",
+          "raw": "{\n  \"productoId\": \"producto-5\",\n  \"cantidad\": 1\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -179,7 +274,7 @@
           }
         },
         "url": {
-          "raw": "http://{{baseUrl}}/api/carritos/cart-1/items",
+          "raw": "http://{{baseUrl}}/api/carritos/carrito-1/items",
           "protocol": "http",
           "host": [
             "{{baseUrl}}"
@@ -187,7 +282,7 @@
           "path": [
             "api",
             "carritos",
-            "cart-1",
+            "carrito-1",
             "items"
           ]
         }
@@ -207,7 +302,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"usuarioId\": \"usr-1\",\n  \"carritoId\": \"cart-1\"\n}",
+          "raw": "{\n  \"usuarioId\": \"usuario-1\",\n  \"carritoId\": \"carrito-1\"\n}",
           "options": {
             "raw": {
               "language": "json"

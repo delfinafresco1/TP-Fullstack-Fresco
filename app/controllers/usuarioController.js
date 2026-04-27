@@ -36,9 +36,19 @@ async function update(req, res, next) {
   }
 }
 
+async function remove(req, res, next) {
+  try {
+    const usuario = await usuarioService.remove(req.params.id);
+    res.status(200).json({ usuario, message: 'Usuario eliminado' });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   list,
   getById,
   create,
   update,
+  remove,
 };

@@ -36,9 +36,19 @@ async function update(req, res, next) {
   }
 }
 
+async function remove(req, res, next) {
+  try {
+    const armado = await armadoService.remove(req.params.id);
+    res.status(200).json({ armado, message: 'Armado eliminado' });
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   list,
   getById,
   create,
   update,
+  remove,
 };

@@ -5,7 +5,7 @@ const productoService = require('./productoService');
 const REQUIRED_CATEGORIES = ['cpu', 'motherboard', 'ram', 'storage', 'psu', 'case'];
 
 function createId() {
-  return `build-${Date.now()}`;
+  return `armado-${Date.now()}`;
 }
 
 function buildValidationError(message) {
@@ -127,10 +127,17 @@ async function update(id, payload) {
   return getById(id);
 }
 
+async function remove(id) {
+  const build = await getById(id);
+  await armadoModel.deleteOne({ id });
+  return build;
+}
+
 module.exports = {
   list,
   getById,
   create,
   update,
+  remove,
   REQUIRED_CATEGORIES,
 };

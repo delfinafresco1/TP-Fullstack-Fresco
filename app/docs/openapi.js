@@ -7,6 +7,9 @@ module.exports = {
   },
   servers: [{ url: 'http://localhost:5000' }],
   paths: {
+    '/api/auth/login': {
+      post: { summary: 'Iniciar sesion con email y password' },
+    },
     '/api/productos': {
       get: {
         summary: 'Listar productos',

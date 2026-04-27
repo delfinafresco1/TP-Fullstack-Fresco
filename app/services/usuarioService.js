@@ -1,7 +1,8 @@
+const bcrypt = require('bcryptjs');
 const usuarioModel = require('../models/usuarioModel');
 
 function createId() {
-  return `usr-${Date.now()}`;
+  return `usuario-${Date.now()}`;
 }
 
 function buildValidationError(message) {
@@ -27,7 +28,7 @@ async function getById(id) {
 }
 
 function validatePayload(payload, partial = false) {
-  const requiredFields = ['nombre', 'email'];
+  const requiredFields = ['nombre', 'email', 'password'];
 
   if (!partial) {
     requiredFields.forEach((field) => {
@@ -39,6 +40,10 @@ function validatePayload(payload, partial = false) {
 
   if (payload.email && !payload.email.includes('@')) {
     throw buildValidationError('El email no es valido');
+  }
+
+  if (payload.password !== undefined && String(payload.password).length < 6) {
+    throw buildValidationError('La password debe tener al menos 6 caracteres');
   }
 }
 
@@ -52,7 +57,8 @@ async function create(payload) {
   return usuarioModel.create({
     id: createId(),
     nombre: payload.nombre,
-    email: payload.email,
+    email: payload.email.toLowerCase(),
+    passwordHash: await bcrypt.hash(payload.password, 10),
     presupuestoMaximo: Number(payload.presupuestoMaximo || 0),
     perfil: payload.perfil || 'general',
   });
@@ -73,8 +79,10 @@ async function update(id, payload) {
     { id },
     {
       $set: {
-        ...payload,
+        nombre: payload.nombre,
         email: payload.email ? payload.email.toLowerCase() : undefined,
+        passwordHash: payload.password ? await bcrypt.hash(payload.password, 10) : undefined,
+        perfil: payload.perfil,
         presupuestoMaximo:
           payload.presupuestoMaximo !== undefined ? Number(payload.presupuestoMaximo) : undefined,
       },
@@ -84,9 +92,21 @@ async function update(id, payload) {
   return getById(id);
 }
 
+async function remove(id) {
+  const user = await getById(id);
+  await usuarioModel.deleteOne({ id });
+  return user;
+}
+
+async function getByEmailWithPassword(email) {
+  return usuarioModel.findOne({ email: email.toLowerCase() }).select('+passwordHash').lean();
+}
+
 module.exports = {
   list,
   getById,
+  getByEmailWithPassword,
   create,
   update,
+  remove,
 };

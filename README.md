@@ -40,6 +40,7 @@ La documentacion detallada de endpoints se encuentra en:
 
 La API expone recursos para:
 
+- `auth`
 - `productos`
 - `usuarios`
 - `armados`

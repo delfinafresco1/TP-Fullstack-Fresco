@@ -4,6 +4,18 @@ Base URL: `http://localhost:5000/api`
 
 La API utiliza `body-parser` para parsear requests JSON/urlencoded y `mongoose` para la persistencia en MongoDB.
 
+## Auth
+
+### POST `/auth/login`
+Permite iniciar sesion con email y password.
+
+```json
+{
+  "email": "lucia@fresco.dev",
+  "password": "Fullstack123"
+}
+```
+
 ## Productos
 
 ### GET `/productos`
@@ -49,6 +61,7 @@ Crea un usuario.
 {
   "nombre": "Sofia Torres",
   "email": "sofia@fresco.dev",
+  "password": "Fullstack123",
   "presupuestoMaximo": 2100000,
   "perfil": "edicion"
 }
@@ -56,6 +69,9 @@ Crea un usuario.
 
 ### PUT `/usuarios/:id`
 Actualiza datos del usuario.
+
+### DELETE `/usuarios/:id`
+Elimina un usuario por id.
 
 ## Armados
 
@@ -71,13 +87,16 @@ Crea un armado nuevo.
 ```json
 {
   "nombre": "PC Streaming AM5",
-  "usuarioId": "usr-1",
-  "componentes": ["prod-1", "prod-2", "prod-3", "prod-4", "prod-5", "prod-6", "prod-7", "prod-8"]
+  "usuarioId": "usuario-1",
+  "componentes": ["producto-1", "producto-2", "producto-3", "producto-4", "producto-5", "producto-6", "producto-7", "producto-8"]
 }
 ```
 
 ### PUT `/armados/:id`
 Permite cambiar nombre, usuario, componentes o estado.
+
+### DELETE `/armados/:id`
+Elimina un armado custom por id.
 
 ## Carritos
 
@@ -92,8 +111,8 @@ Crea un carrito.
 
 ```json
 {
-  "usuarioId": "usr-1",
-  "buildId": "build-1"
+  "usuarioId": "usuario-1",
+  "buildId": "armado-1"
 }
 ```
 
@@ -102,10 +121,13 @@ Agrega items al carrito y valida stock.
 
 ```json
 {
-  "productoId": "prod-5",
+  "productoId": "producto-5",
   "cantidad": 1
 }
 ```
+
+### DELETE `/carritos/:id`
+Elimina un carrito por id.
 
 ## Pedidos
 
@@ -120,8 +142,8 @@ Genera un pedido a partir de un carrito.
 
 ```json
 {
-  "usuarioId": "usr-1",
-  "carritoId": "cart-1"
+  "usuarioId": "usuario-1",
+  "carritoId": "carrito-1"
 }
 ```
 

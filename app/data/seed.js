@@ -1,7 +1,7 @@
 const products = [
   {
-    id: 'prod-1',
-    nombre: 'AMD Ryzen 7 7800X3D',
+    id: 'producto-1',
+    nombre: 'Procesador Gamer AMD',
     categoria: 'cpu',
     marca: 'AMD',
     socket: 'AM5',
@@ -10,8 +10,8 @@ const products = [
     consumoWatts: 120,
   },
   {
-    id: 'prod-2',
-    nombre: 'Motherboard ASUS TUF B650-PLUS WIFI',
+    id: 'producto-2',
+    nombre: 'Placa Madre AM5 ASUS',
     categoria: 'motherboard',
     marca: 'ASUS',
     socket: 'AM5',
@@ -20,8 +20,8 @@ const products = [
     consumoWatts: 70,
   },
   {
-    id: 'prod-3',
-    nombre: 'NVIDIA RTX 4070 Super 12GB',
+    id: 'producto-3',
+    nombre: 'Placa de Video RTX 4070',
     categoria: 'gpu',
     marca: 'NVIDIA',
     precio: 890000,
@@ -29,8 +29,8 @@ const products = [
     consumoWatts: 220,
   },
   {
-    id: 'prod-4',
-    nombre: 'Kingston Fury Beast 32GB DDR5',
+    id: 'producto-4',
+    nombre: 'Memoria RAM 32GB DDR5',
     categoria: 'ram',
     marca: 'Kingston',
     precio: 165000,
@@ -38,8 +38,8 @@ const products = [
     consumoWatts: 10,
   },
   {
-    id: 'prod-5',
-    nombre: 'SSD NVMe Samsung 980 Pro 1TB',
+    id: 'producto-5',
+    nombre: 'Disco SSD 1TB',
     categoria: 'storage',
     marca: 'Samsung',
     precio: 140000,
@@ -47,8 +47,8 @@ const products = [
     consumoWatts: 8,
   },
   {
-    id: 'prod-6',
-    nombre: 'Corsair RM750e 750W 80 Plus Gold',
+    id: 'producto-6',
+    nombre: 'Fuente 750W',
     categoria: 'psu',
     marca: 'Corsair',
     precio: 185000,
@@ -57,8 +57,8 @@ const products = [
     potenciaSalida: 750,
   },
   {
-    id: 'prod-7',
-    nombre: 'Gabinete NZXT H6 Flow',
+    id: 'producto-7',
+    nombre: 'Gabinete Mid Tower',
     categoria: 'case',
     marca: 'NZXT',
     precio: 170000,
@@ -66,8 +66,8 @@ const products = [
     consumoWatts: 0,
   },
   {
-    id: 'prod-8',
-    nombre: 'Cooler DeepCool AK620',
+    id: 'producto-8',
+    nombre: 'Cooler para CPU',
     categoria: 'cooler',
     marca: 'DeepCool',
     precio: 115000,
@@ -78,16 +78,18 @@ const products = [
 
 const users = [
   {
-    id: 'usr-1',
+    id: 'usuario-1',
     nombre: 'Lucia Fernandez',
     email: 'lucia@fresco.dev',
+    password: 'Fullstack123',
     presupuestoMaximo: 2500000,
     perfil: 'gaming',
   },
   {
-    id: 'usr-2',
+    id: 'usuario-2',
     nombre: 'Martin Gomez',
     email: 'martin@fresco.dev',
+    password: 'Fullstack123',
     presupuestoMaximo: 1800000,
     perfil: 'streaming',
   },
@@ -95,32 +97,41 @@ const users = [
 
 const builds = [
   {
-    id: 'build-1',
-    nombre: 'Gaming AM5 1440p',
-    usuarioId: 'usr-1',
-    componentes: ['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6', 'prod-7', 'prod-8'],
+    id: 'armado-1',
+    nombre: 'PC Gamer Base',
+    usuarioId: 'usuario-1',
+    componentes: [
+      'producto-1',
+      'producto-2',
+      'producto-3',
+      'producto-4',
+      'producto-5',
+      'producto-6',
+      'producto-7',
+      'producto-8'
+    ],
     estado: 'borrador',
   },
 ];
 
 const carts = [
   {
-    id: 'cart-1',
-    usuarioId: 'usr-1',
+    id: 'carrito-1',
+    usuarioId: 'usuario-1',
     items: [
-      { productoId: 'prod-3', cantidad: 1 },
-      { productoId: 'prod-5', cantidad: 1 },
+      { productoId: 'producto-3', cantidad: 1 },
+      { productoId: 'producto-5', cantidad: 1 },
     ],
-    buildId: 'build-1',
+    buildId: 'armado-1',
   },
 ];
 
 const orders = [
   {
-    id: 'ord-1',
-    usuarioId: 'usr-2',
+    id: 'pedido-1',
+    usuarioId: 'usuario-2',
     carritoId: null,
-    items: [{ productoId: 'prod-4', cantidad: 2 }],
+    items: [{ productoId: 'producto-4', cantidad: 2 }],
     total: 330000,
     estado: 'confirmado',
   },

@@ -6,6 +6,7 @@ const openApiSpec = require('./docs/openapi');
 
 const productosRouter = require('./routes/productos');
 const usuariosRouter = require('./routes/usuarios');
+const authRouter = require('./routes/auth');
 const armadosRouter = require('./routes/armados');
 const carritosRouter = require('./routes/carritos');
 const pedidosRouter = require('./routes/pedidos');
@@ -27,6 +28,7 @@ app.get('/api-docs/openapi.json', (req, res) => {
   res.status(200).json(openApiSpec);
 });
 
+app.use(`${API_PREFIX}/auth`, authRouter);
 app.use(`${API_PREFIX}/productos`, productosRouter);
 app.use(`${API_PREFIX}/usuarios`, usuariosRouter);
 app.use(`${API_PREFIX}/armados`, armadosRouter);

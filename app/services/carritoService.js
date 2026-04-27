@@ -4,7 +4,7 @@ const productoService = require('./productoService');
 const armadoService = require('./armadoService');
 
 function createId() {
-  return `cart-${Date.now()}`;
+  return `carrito-${Date.now()}`;
 }
 
 function buildValidationError(message) {
@@ -113,9 +113,16 @@ async function addItem(id, payload) {
   return getById(id);
 }
 
+async function remove(id) {
+  const cart = await getById(id);
+  await carritoModel.deleteOne({ id });
+  return cart;
+}
+
 module.exports = {
   list,
   getById,
   create,
   addItem,
+  remove,
 };
