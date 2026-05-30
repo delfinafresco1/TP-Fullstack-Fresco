@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "preview": "node frontend-preview.js",
     "test": "node -e \"require('./app/app'); console.log('App modules OK')\""
   },
   "keywords": [],

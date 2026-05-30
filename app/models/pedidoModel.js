@@ -16,6 +16,13 @@ const pedidoSchema = new mongoose.Schema(
     items: { type: [pedidoItemSchema], default: [] },
     total: { type: Number, required: true, min: 0 },
     estado: { type: String, default: 'pendiente', trim: true },
+    metodoPago: { type: String, default: 'transferencia', trim: true },
+    entrega: {
+      nombre: { type: String, default: '', trim: true },
+      email: { type: String, default: '', trim: true },
+      telefono: { type: String, default: '', trim: true },
+      direccion: { type: String, default: '', trim: true },
+    },
   },
   { versionKey: false, timestamps: true }
 );

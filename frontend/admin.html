@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin | Fresco PC Custom</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="promo-strip">Panel de administracion</div>
+
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Fresco PC Custom">
+        <span class="brand-mark">FPC</span>
+        <span>
+          <strong>Fresco PC</strong>
+          <small>Custom hardware</small>
+        </span>
+      </a>
+
+      <nav class="nav-actions" aria-label="Navegacion principal">
+        <a href="/">Catalogo</a>
+        <a href="/carrito.html">Carrito <span id="cart-count" class="count">0</span></a>
+        <a href="/login.html" data-session-label>Ingresar</a>
+        <a href="/admin.html" data-admin-link hidden>Admin</a>
+      </nav>
+    </header>
+
+    <main class="admin-page">
+      <section class="page-hero">
+        <p class="eyebrow">Admin</p>
+        <h1>Gestion de productos</h1>
+        <p>Agrega componentes, modifica stock/precios y elimina productos desde la API.</p>
+      </section>
+
+      <section id="admin-locked" class="locked-panel" hidden>
+        <h2>Necesitas una cuenta admin</h2>
+        <p>Inicia sesion con <strong>admin@fresco.dev</strong> y password <strong>Admin123</strong>, o crea un usuario con perfil admin demo.</p>
+        <a class="primary-link" href="/login.html">Ir a login</a>
+      </section>
+
+      <section id="admin-content" class="admin-layout" hidden>
+        <form id="product-form" class="admin-form">
+          <div>
+            <p class="eyebrow">Producto</p>
+            <h2 id="product-form-title">Agregar producto</h2>
+          </div>
+          <input type="hidden" name="id">
+          <label>
+            <span>Nombre</span>
+            <input name="nombre" type="text" required>
+          </label>
+          <div class="form-grid">
+            <label>
+              <span>Categoria</span>
+              <select name="categoria" required>
+                <option value="cpu">CPU</option>
+                <option value="motherboard">Mother</option>
+                <option value="gpu">GPU</option>
+                <option value="ram">RAM</option>
+                <option value="storage">Disco</option>
+                <option value="psu">Fuente</option>
+                <option value="case">Gabinete</option>
+                <option value="cooler">Cooler</option>
+              </select>
+            </label>
+            <label>
+              <span>Marca</span>
+              <input name="marca" type="text" required>
+            </label>
+            <label>
+              <span>Socket</span>
+              <input name="socket" type="text" placeholder="AM5, LGA1700">
+            </label>
+            <label>
+              <span>Precio</span>
+              <input name="precio" type="number" min="1" required>
+            </label>
+            <label>
+              <span>Stock</span>
+              <input name="stock" type="number" min="0" required>
+            </label>
+            <label>
+              <span>Consumo W</span>
+              <input name="consumoWatts" type="number" min="0" value="0">
+            </label>
+            <label>
+              <span>Salida W</span>
+              <input name="potenciaSalida" type="number" min="0">
+            </label>
+          </div>
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Guardar</button>
+            <button id="reset-product-form" class="ghost-button" type="button">Nuevo</button>
+          </div>
+          <p id="admin-message" class="form-message"></p>
+        </form>
+
+        <section class="admin-list-panel">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Inventario</p>
+              <h2>Productos cargados</h2>
+            </div>
+            <button id="reload-products" class="ghost-button" type="button">Actualizar</button>
+          </div>
+          <div id="admin-products" class="admin-products"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/js/store.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

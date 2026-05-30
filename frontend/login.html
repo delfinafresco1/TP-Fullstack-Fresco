@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuenta | Fresco PC Custom</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="promo-strip">Cuenta de usuario y acceso admin</div>
+
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Fresco PC Custom">
+        <span class="brand-mark">FPC</span>
+        <span>
+          <strong>Fresco PC</strong>
+          <small>Custom hardware</small>
+        </span>
+      </a>
+
+      <nav class="nav-actions" aria-label="Navegacion principal">
+        <a href="/">Catalogo</a>
+        <a href="/carrito.html">Carrito <span id="cart-count" class="count">0</span></a>
+        <a href="/login.html" data-session-label>Ingresar</a>
+        <a href="/admin.html" data-admin-link hidden>Admin</a>
+      </nav>
+    </header>
+
+    <main class="account-page">
+      <section class="page-hero">
+        <p class="eyebrow">Cuenta</p>
+        <h1>Iniciar sesion</h1>
+        <p>Usa una cuenta de prueba, registrate o entra como admin para gestionar productos.</p>
+      </section>
+
+      <section class="account-layout">
+        <form id="login-form" class="auth-panel">
+          <div>
+            <p class="eyebrow">Acceso</p>
+            <h2>Ya tengo cuenta</h2>
+          </div>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" value="admin@fresco.dev" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" value="Admin123" required>
+          </label>
+          <button class="primary-button" type="submit">Ingresar</button>
+          <p class="form-message" id="login-message"></p>
+        </form>
+
+        <form id="register-form" class="auth-panel">
+          <div>
+            <p class="eyebrow">Registro</p>
+            <h2>Crear usuario</h2>
+          </div>
+          <label>
+            <span>Nombre</span>
+            <input name="nombre" type="text" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" minlength="6" required>
+          </label>
+          <label>
+            <span>Perfil</span>
+            <select name="perfil">
+              <option value="general">Cliente</option>
+              <option value="admin">Admin demo</option>
+            </select>
+          </label>
+          <button class="secondary-button" type="submit">Registrarme</button>
+          <p class="form-message" id="register-message"></p>
+        </form>
+
+        <aside class="session-panel">
+          <p class="eyebrow">Sesion actual</p>
+          <div id="session-card"></div>
+          <button id="logout-button" class="ghost-button" type="button">Cerrar sesion</button>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/js/store.js"></script>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

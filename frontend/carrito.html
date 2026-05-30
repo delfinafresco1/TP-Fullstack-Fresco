@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrito | Fresco PC Custom</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="promo-strip">Carrito conectado a la API del TP</div>
+
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Fresco PC Custom">
+        <span class="brand-mark">FPC</span>
+        <span>
+          <strong>Fresco PC</strong>
+          <small>Custom hardware</small>
+        </span>
+      </a>
+
+      <nav class="nav-actions" aria-label="Navegacion principal">
+        <a href="/">Catalogo</a>
+        <a href="/carrito.html">Carrito <span id="cart-count" class="count">0</span></a>
+        <a href="/login.html" data-session-label>Ingresar</a>
+        <a href="/admin.html" data-admin-link hidden>Admin</a>
+        <a href="/docs">API</a>
+      </nav>
+    </header>
+
+    <main class="cart-page">
+      <section class="page-hero">
+        <p class="eyebrow">Checkout</p>
+        <h1>Componentes seleccionados</h1>
+        <p>Revisa cantidades, sincroniza el carrito con la API y genera el pedido.</p>
+      </section>
+
+      <section class="cart-layout">
+        <div class="cart-items-panel">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Carrito</p>
+              <h2>Productos</h2>
+            </div>
+            <button id="clear-cart" class="ghost-button" type="button">Vaciar</button>
+          </div>
+          <p id="cart-status" class="status-message"></p>
+          <div id="cart-items" class="cart-items"></div>
+
+          <form id="checkout-form" class="checkout-form">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Datos de compra</p>
+                <h2>Pago y entrega</h2>
+              </div>
+            </div>
+
+            <fieldset class="payment-methods">
+              <legend>Medio de pago</legend>
+              <label>
+                <input type="radio" name="metodoPago" value="transferencia" checked>
+                <span>
+                  <strong>Transferencia</strong>
+                  <small>Se confirma al recibir el comprobante.</small>
+                </span>
+              </label>
+              <label>
+                <input type="radio" name="metodoPago" value="tarjeta">
+                <span>
+                  <strong>Tarjeta</strong>
+                  <small>Pago simulado para el TP.</small>
+                </span>
+              </label>
+              <label>
+                <input type="radio" name="metodoPago" value="efectivo">
+                <span>
+                  <strong>Efectivo</strong>
+                  <small>Abonas al retirar.</small>
+                </span>
+              </label>
+            </fieldset>
+
+            <div class="checkout-grid">
+              <label>
+                <span>Nombre</span>
+                <input id="customer-name" name="nombre" type="text" placeholder="Delfina Fresco" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input id="customer-email" name="email" type="email" placeholder="mail@ejemplo.com" required>
+              </label>
+              <label>
+                <span>Telefono</span>
+                <input id="customer-phone" name="telefono" type="tel" placeholder="11 1234 5678">
+              </label>
+              <label>
+                <span>Entrega</span>
+                <input id="customer-address" name="direccion" type="text" placeholder="Retiro por local o direccion">
+              </label>
+            </div>
+          </form>
+
+          <section id="order-confirmation" class="order-confirmation" hidden></section>
+        </div>
+
+        <aside class="summary-panel" aria-label="Resumen de compra">
+          <h2>Resumen</h2>
+          <p class="summary-note" id="checkout-user-note">Se usa tu sesion activa o el usuario de prueba <strong>usuario-1</strong>.</p>
+          <dl>
+            <div>
+              <dt>Items</dt>
+              <dd id="summary-items">0</dd>
+            </div>
+            <div>
+              <dt>Total</dt>
+              <dd id="summary-total">$0</dd>
+            </div>
+          </dl>
+          <button id="sync-cart" class="primary-button" type="button">Enviar a carrito API</button>
+          <button id="create-order" class="secondary-button" type="button">Crear pedido</button>
+          <p id="checkout-message" class="checkout-message"></p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/js/store.js"></script>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>

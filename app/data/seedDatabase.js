@@ -21,14 +21,32 @@ async function seedIfNeeded() {
   const productsCount = await Producto.countDocuments();
 
   if (productsCount > 0) {
+    for (const product of seed.products) {
+      await Producto.updateOne(
+        { id: product.id },
+        {
+          $set: product,
+        },
+        { upsert: true }
+      );
+    }
+
     for (const user of mapSeedUsers()) {
       await Usuario.updateOne(
         { email: user.email },
         {
           $set: {
             passwordHash: user.passwordHash,
+            nombre: user.nombre,
+            presupuestoMaximo: user.presupuestoMaximo,
+            perfil: user.perfil,
           },
-        }
+          $setOnInsert: {
+            id: user.id,
+            email: user.email,
+          },
+        },
+        { upsert: true }
       );
     }
     return;

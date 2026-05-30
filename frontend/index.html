@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fresco PC Custom | Catalogo</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="promo-strip">Envios a todo el pais y armado a medida</div>
+
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Fresco PC Custom">
+        <span class="brand-mark">FPC</span>
+        <span>
+          <strong>Fresco PC</strong>
+          <small>Custom hardware</small>
+        </span>
+      </a>
+
+      <label class="nav-search">
+        <span class="sr-only">Buscar productos</span>
+        <input id="search-input" type="search" placeholder="Buscar por producto, marca o socket">
+      </label>
+
+      <nav class="nav-actions" aria-label="Navegacion principal">
+        <a href="#catalogo">Catalogo</a>
+        <a href="#armador">Armador</a>
+        <a href="/carrito.html">Carrito <span id="cart-count" class="count">0</span></a>
+        <a href="/login.html" data-session-label>Ingresar</a>
+        <a href="/admin.html" data-admin-link hidden>Admin</a>
+        <a href="/docs">API</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Tienda de componentes</p>
+          <h1>Fresco PC Custom</h1>
+          <p>
+            Componentes para armar una PC gamer, de estudio o de trabajo, conectados
+            al backend del TP y listos para probar carrito y pedidos.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#catalogo">Ver catalogo</a>
+            <a class="ghost-link" href="/carrito.html">Revisar carrito</a>
+          </div>
+        </div>
+        <div class="build-preview" aria-label="Resumen visual de armado de PC">
+          <div class="pc-case">
+            <span class="fan fan-one"></span>
+            <span class="fan fan-two"></span>
+            <span class="gpu-line"></span>
+            <span class="ram ram-one"></span>
+            <span class="ram ram-two"></span>
+          </div>
+          <div class="spec-strip">
+            <span>AM5</span>
+            <span>RTX</span>
+            <span>DDR5</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-stats" aria-label="Beneficios">
+        <article>
+          <strong id="stat-products">0</strong>
+          <span>productos cargados</span>
+        </article>
+        <article>
+          <strong>API</strong>
+          <span>catalogo, carritos y pedidos</span>
+        </article>
+        <article>
+          <strong>PC</strong>
+          <span>compatibilidad por socket y watts</span>
+        </article>
+      </section>
+
+      <section id="catalogo" class="catalog-section">
+        <aside class="filters-panel" aria-label="Categorias">
+          <p class="eyebrow">Categorias</p>
+          <h2>Catalogo</h2>
+          <div id="category-filters" class="filters" aria-label="Filtros por categoria"></div>
+        </aside>
+
+        <div class="products-area">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Disponibles</p>
+              <h2 id="products-title">Todos los productos</h2>
+            </div>
+            <p id="status-message" class="status-message">Cargando productos...</p>
+          </div>
+          <div id="products-grid" class="products-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="armador" class="builder-section" aria-label="Armador de PC">
+        <div>
+          <p class="eyebrow">Armador rapido</p>
+          <h2>Tu seleccion, en una sola vista</h2>
+          <p>
+            Agrega componentes desde el catalogo y usa el carrito para enviar el armado
+            a la API. Queda dentro del mismo proyecto, sin levantar otro frontend.
+          </p>
+        </div>
+        <div class="builder-summary">
+          <dl>
+            <div>
+              <dt>Items</dt>
+              <dd id="builder-items">0</dd>
+            </div>
+            <div>
+              <dt>Total estimado</dt>
+              <dd id="builder-total">$0</dd>
+            </div>
+          </dl>
+          <a class="secondary-button" href="/carrito.html">Continuar compra</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>TP Fullstack Fresco</span>
+      <a href="/carrito.html">Revisar carrito</a>
+    </footer>
+
+    <script src="/js/store.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

@@ -1,16 +1,28 @@
 const pedidoModel = require('../models/pedidoModel');
 const carritoService = require('./carritoService');
 const usuarioService = require('./usuarioService');
+const { generateReadableId } = require('../utils/idGenerator');
 const productoService = require('./productoService');
 
 function createId() {
-  return `pedido-${Date.now()}`;
+  return generateReadableId('pedido');
 }
 
 function buildValidationError(message) {
   const error = new Error(message);
   error.status = 400;
   return error;
+}
+
+function normalizeDelivery(payload) {
+  const entrega = payload.entrega || {};
+
+  return {
+    nombre: entrega.nombre || '',
+    email: entrega.email || '',
+    telefono: entrega.telefono || '',
+    direccion: entrega.direccion || '',
+  };
 }
 
 async function list() {
@@ -52,7 +64,9 @@ async function createFromCart(payload) {
       cantidad: item.cantidad,
     })),
     total,
-    estado: payload.estado || 'pendiente',
+    estado: payload.estado || 'confirmado',
+    metodoPago: payload.metodoPago || 'transferencia',
+    entrega: normalizeDelivery(payload),
   });
 }
 
