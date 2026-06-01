@@ -261,83 +261,15 @@ button:disabled {
   justify-items: center;
 }
 
-.pc-case {
-  position: relative;
+.hero-pc-image {
   width: min(100%, 390px);
   aspect-ratio: 4 / 5;
   border: 3px solid #24282d;
   border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.18)),
-    linear-gradient(135deg, #d9e9f8, #6fa5d7);
-  box-shadow: var(--shadow);
-}
-
-.pc-case::before,
-.pc-case::after,
-.fan,
-.gpu-line,
-.ram {
-  position: absolute;
   display: block;
-  content: "";
-}
-
-.pc-case::before {
-  inset: 24px;
-  border: 2px solid rgba(24, 27, 31, 0.25);
-  border-radius: 8px;
-}
-
-.pc-case::after {
-  top: 32px;
-  right: 34px;
-  width: 88px;
-  height: 120px;
-  border-radius: 8px;
-  background: var(--ink);
-}
-
-.fan {
-  left: 42px;
-  width: 92px;
-  height: 92px;
-  border: 12px solid #fff;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--accent) 0 12px, transparent 13px);
-}
-
-.fan-one {
-  top: 44px;
-}
-
-.fan-two {
-  bottom: 48px;
-}
-
-.gpu-line {
-  right: 42px;
-  bottom: 96px;
-  width: 188px;
-  height: 42px;
-  border-radius: 8px;
-  background: var(--yellow);
-}
-
-.ram {
-  top: 178px;
-  width: 22px;
-  height: 118px;
-  border-radius: 6px;
-  background: var(--green);
-}
-
-.ram-one {
-  right: 92px;
-}
-
-.ram-two {
-  right: 126px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: var(--shadow);
 }
 
 .spec-strip {
@@ -993,7 +925,7 @@ button:disabled {
     order: -1;
   }
 
-  .pc-case {
+  .hero-pc-image {
     max-width: 300px;
   }
 
