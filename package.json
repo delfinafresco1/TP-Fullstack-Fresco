@@ -2,11 +2,11 @@
   "name": "tp-fullstack-fresco",
   "version": "1.0.0",
   "description": "API REST para tienda de componentes y armado de PCs custom",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node backend/server.js",
     "preview": "node frontend-preview.js",
-    "test": "node -e \"require('./app/app'); console.log('App modules OK')\""
+    "test": "node -e \"require('./backend/app/app'); console.log('App modules OK')\""
   },
   "keywords": [],
   "author": "",

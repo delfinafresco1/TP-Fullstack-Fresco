@@ -12,7 +12,7 @@ const carritosRouter = require('./routes/carritos');
 const pedidosRouter = require('./routes/pedidos');
 
 const app = express();
-const frontendPath = path.join(__dirname, '..', 'frontend');
+const frontendPath = path.join(__dirname, '..', '..', 'frontend');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

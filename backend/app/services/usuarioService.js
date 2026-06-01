@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const usuarioModel = require('../models/usuarioModel');
+const { generateReadableId } = require('../utils/idGenerator');
 
 function createId() {
-  return `usuario-${Date.now()}`;
+  return generateReadableId('usuario');
 }
 
 function buildValidationError(message) {

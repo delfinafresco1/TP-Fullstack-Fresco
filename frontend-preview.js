@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const seed = require('./app/data/seed');
+const seed = require('./backend/app/data/seed');
 
 const app = express();
 const PORT = process.env.PREVIEW_PORT || 5177;

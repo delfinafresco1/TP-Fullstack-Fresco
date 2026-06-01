@@ -2,9 +2,10 @@ const carritoModel = require('../models/carritoModel');
 const usuarioService = require('./usuarioService');
 const productoService = require('./productoService');
 const armadoService = require('./armadoService');
+const { generateReadableId } = require('../utils/idGenerator');
 
 function createId() {
-  return `carrito-${Date.now()}`;
+  return generateReadableId('carrito');
 }
 
 function buildValidationError(message) {

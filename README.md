@@ -52,6 +52,18 @@ La API expone recursos para:
 - Resumen de datos de prueba: [docs/test-data.md](/C:/Users/delfi/Desktop/Fullstack/TP-Fullstack-Fresco/docs/test-data.md)
 - Coleccion Postman: [docs/postman/Fresco-PC-Custom.postman_collection.json](/C:/Users/delfi/Desktop/Fullstack/TP-Fullstack-Fresco/docs/postman/Fresco-PC-Custom.postman_collection.json)
 
+## Uso de la coleccion Postman
+
+Para probar la API con Postman:
+
+1. Abrir Postman.
+2. Seleccionar `Import`.
+3. Cargar el archivo `docs/postman/Fresco-PC-Custom.postman_collection.json`.
+4. Verificar que la variable `baseUrl` tenga el valor `localhost:5000`.
+5. Ejecutar las requests de la coleccion con el backend levantado mediante `npm start`.
+
+La coleccion ya incluye ejemplos de body para las requests `POST` y `PUT`.
+
 ## Ejecucion local
 
 ```bash

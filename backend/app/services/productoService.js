@@ -1,9 +1,10 @@
 const productoModel = require('../models/productoModel');
+const { generateReadableId } = require('../utils/idGenerator');
 
 const VALID_CATEGORIES = ['cpu', 'motherboard', 'gpu', 'ram', 'storage', 'psu', 'case', 'cooler'];
 
 function createId() {
-  return `producto-${Date.now()}`;
+  return generateReadableId('producto');
 }
 
 function buildValidationError(message) {

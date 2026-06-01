@@ -1,11 +1,12 @@
 const armadoModel = require('../models/armadoModel');
 const usuarioService = require('./usuarioService');
 const productoService = require('./productoService');
+const { generateReadableId } = require('../utils/idGenerator');
 
 const REQUIRED_CATEGORIES = ['cpu', 'motherboard', 'ram', 'storage', 'psu', 'case'];
 
 function createId() {
-  return `armado-${Date.now()}`;
+  return generateReadableId('armado');
 }
 
 function buildValidationError(message) {
